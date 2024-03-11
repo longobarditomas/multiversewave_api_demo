@@ -58,7 +58,7 @@ class ArtistController extends Controller
             'about'       => $request->input('about', null), 
             'country_id'  => 1, 
             'city_id'     => 0, 
-            'image'       => $request->hasFile('image', null),
+            'image'       => $request->hasFile('image') ? $request->file('image') : null,
             'tags'        => $request->input('tags', []),
         ];
         if ($data['is_ensemble'] == 0) {
